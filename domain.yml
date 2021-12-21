@@ -1,0 +1,91 @@
+session_config:
+  session_expiration_time: 0
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- affirm
+- restaurant_search
+- not
+- goodbye
+entities:
+- cuisine
+- email
+- location
+- people
+- price
+slots:
+  cuisine:
+    type: text
+  email:
+    type: text
+  emailbody:
+    type: text
+  location:
+    type: text
+  price:
+    type: text
+  received all:
+    type: text
+responses:
+  utter_greet:
+  - text: Heyy, what is that your looking today?
+  - text: How can I help you today?
+  - text: Hi There!!! How can I help you?
+  - text: How is your day going
+  - text: How are you doing?
+  - text: Good Day
+  utter_ask_location:
+  - text: In what location?
+  - text: In which city are you looking for restaurants?
+  - text: location please
+  - text: Help me with your location to proceed further
+  utter_ask_cuisine:
+  - text: What kind of cuisine do you prefer?
+    buttons:
+    - title: chinese
+      payload: Chinese
+    - title: mexican
+      payload: Mexican
+    - title: italian
+      payload: Italian
+    - title: american
+      payload: American
+    - title: South Indian
+      payload: South Indian
+    - title: North Indian
+      payload: North Indian
+  utter_ask_price:
+  - text: What is the average budget for two people?
+    buttons:
+    - title: Lesser than Rs 300
+      payload: low
+    - title: Rs 300 to 700
+      payload: mid
+    - title: More than 700
+      payload: high
+  utter_email_prompt:
+  - text: Should I send you details of all the restaurants on email?
+  utter_goodbye:
+  - text: Bye bye
+  - text: Have a nice rest of the day
+  - text: Enjoy your food
+  - text: Good Bye
+  utter_ask_email:
+  - text: please key in your email
+  - text: Email please
+  - text: Type your email
+  utter_default:
+  - text: We do not operate in that area yet
+  - text: I cannot uderstand
+actions:
+- action_check_location
+- action_search_restaurants
+- action_send_email
+- utter_ask_cuisine
+- utter_ask_email
+- utter_ask_location
+- utter_ask_price
+- utter_default
+- utter_email_prompt
+- utter_goodbye
+- utter_greet
